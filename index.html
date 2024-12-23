@@ -47,13 +47,12 @@
     <p id="result" style="margin-top: 20px; font-weight: bold;"></p>
     
     <script>
-        // The encoded answer (base64 encoded 'baskerville')
         const encode = [98, 97, 115, 107, 101, 114, 118, 105, 108, 108, 101];
         function decode() {
             return String.fromCharCode(...encode);
         }
 
-        const encodedLink = "aHR0cHM6Ly9rYW51amxvbC5naXRodWIuaW8vUUYv";
+        const el = "aHR0cHM6Ly9rYW51amxvbC5naXRodWIuaW8vUUYv";
         
         function decodeBase64(encoded) {
             return atob(encoded);
@@ -62,13 +61,13 @@
         function checkAnswer() {
             const answer = document.getElementById("answer").value.trim().toLowerCase();
             const result = document.getElementById("result");
-            const correctAnswer = decode();
+            const ca = decode();
 
-            if (answer === correctAnswer) {
+            if (answer === ca) {
                 result.textContent = "Correct!";
                 result.style.color = "green";
                 setTimeout(() => {
-                    const decodedLink = decodeBase64(encodedLink);
+                    const decodedLink = decodeBase64(el);
                     window.location.href = decodedLink;
                 }, 2000);
             } else {
