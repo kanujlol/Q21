@@ -3,71 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Page</title>
+    <title>Sherlock's Deduction</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Cousine:wght@400&display=swap');
-
         body {
-            font-family: 'Cousine', monospace;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-color: #f4f4f4;
+            font-family: Cousine, monospace;
+            text-align: center;
+            margin: 50px;
         }
-        h1 {
-            margin-bottom: 20px;
-            font-size: 24px;
-        }
-        h1 a {
-            text-decoration: none;
-            color: black;
-            font-weight: bold;
-        }
-        h1 a:hover {
-            color: #555555;
+        img {
+            width: 80%;
+            max-width: 600px;
+            filter: blur(0px); /* Keep the image blurred initially */
         }
         input {
+            margin-top: 20px;
             padding: 10px;
             font-size: 16px;
-            margin: 10px 0;
-            font-family: 'Cousine', monospace;
         }
         button {
             padding: 10px 20px;
             font-size: 16px;
-            background-color: black;
-            color: white;
-            border: none;
             cursor: pointer;
-            font-family: 'Cousine', monospace;
         }
-        button:hover {
-            background-color: #333333;
+        .clue {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <h1>
-        <a href="https://www.youtube.com/clip/UgkxzWxFfyJfUaMifJ30rCXc-xX-YZ4HdR93" target="_blank">Password, please sir</a>
-    </h1>
-    <div>
-        <input type="password" id="password" placeholder="Enter password">
-        <button onclick="checkPassword()">Submit</button>
+    <!-- Only the question "Where do I live?" -->
+    <div class="clue">
+        Where do I live?
     </div>
-
+    
+    <img src="hound.jpg" alt="Blurred Hound">
+    
+    <br>
+    <input type="text" id="answer" placeholder="Enter your answer">
+    <button onclick="checkAnswer()">Submit</button>
+    <p id="result" style="margin-top: 20px; font-weight: bold;"></p>
+    
     <script>
-        function checkPassword() {
-            const correctPassword = "N3PC181KZ";
-            const userPassword = document.getElementById("password").value;
-
-            if (userPassword === correctPassword) {
-                // Redirect to the next page
-                window.location.href = "nextpage.html";
+        function checkAnswer() {
+            const answer = document.getElementById("answer").value.trim();
+            const result = document.getElementById("result");
+            if (answer.toLowerCase() === "baskerville") {
+                result.textContent = "Correct! The hound roams Baskerville.";
+                result.style.color = "green";
+                setTimeout(() => {
+                    window.location.href = "step3.html"; // Change to your next step file
+                }, 2000);
             } else {
-                alert("Incorrect password. Try again!");
+                result.textContent = "Wrong answer. Try again!";
+                result.style.color = "red";
             }
         }
     </script>
