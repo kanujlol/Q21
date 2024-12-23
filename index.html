@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Page</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cousine:wght@400&display=swap');
+
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Cousine', monospace;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -16,34 +18,41 @@
             background-color: #f4f4f4;
         }
         h1 {
-            margin-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 24px;
         }
-        a {
+        h1 a {
             text-decoration: none;
-            color: #007BFF;
+            color: black;
             font-weight: bold;
+        }
+        h1 a:hover {
+            color: #555555;
         }
         input {
             padding: 10px;
             font-size: 16px;
             margin: 10px 0;
+            font-family: 'Cousine', monospace;
         }
         button {
             padding: 10px 20px;
             font-size: 16px;
-            background-color: #007BFF;
+            background-color: black;
             color: white;
             border: none;
             cursor: pointer;
+            font-family: 'Cousine', monospace;
         }
         button:hover {
-            background-color: #0056b3;
+            background-color: #333333;
         }
     </style>
 </head>
 <body>
-    <h1>Password, please sir</h1>
-    <a href="https://www.youtube.com/watch?v=VIDEO_ID" target="_blank">Watch the clue here</a>
+    <h1>
+        <a href="https://www.youtube.com/clip/UgkxzWxFfyJfUaMifJ30rCXc-xX-YZ4HdR93" target="_blank">Password, please sir</a>
+    </h1>
     <div>
         <input type="password" id="password" placeholder="Enter password">
         <button onclick="checkPassword()">Submit</button>
