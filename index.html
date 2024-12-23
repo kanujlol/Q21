@@ -47,9 +47,16 @@
     <p id="result" style="margin-top: 20px; font-weight: bold;"></p>
     
     <script>
+        // The encoded answer (base64 encoded 'baskerville')
         const encode = [98, 97, 115, 107, 101, 114, 118, 105, 108, 108, 101];
         function decode() {
             return String.fromCharCode(...encode);
+        }
+
+        const encodedLink = "aHR0cHM6Ly9rYW51amxvbC5naXRodWIuaW8vUUYv";
+        
+        function decodeBase64(encoded) {
+            return atob(encoded);
         }
 
         function checkAnswer() {
@@ -61,7 +68,8 @@
                 result.textContent = "Correct!";
                 result.style.color = "green";
                 setTimeout(() => {
-                    window.location.href = "https://kanujlol.github.io/QF/";
+                    const decodedLink = decodeBase64(encodedLink);
+                    window.location.href = decodedLink;
                 }, 2000);
             } else {
                 result.textContent = "Wrong answer. Try again!";
